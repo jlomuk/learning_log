@@ -3,6 +3,7 @@
 {% block content %}
 
   <h3> Тема: {{topic}}</h3>
+   <a href="{% url 'new_entry' topic.id %}">Добавить новую запись</a>
   <h4>Что изучено:</h4>
   <ul>
   	{% for entry in entries  %}
@@ -10,11 +11,12 @@
       <p>{{entry.text|linebreaks}}</p>
       <p>{{entry.data_added|date:'Y-m-d -- H:i'}}</p>
       <br>
+      <p><a href="{% url 'edit_entry' entry.id %}">Редактировать запись</a></p>
+      <br>
     </li>
     {% empty %}
     <li>Ничего не изучено по данной теме</li>
   	
   	{% endfor %}
   </ul>
- 
 {% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "learning_logs/base.html" %}
+	
+{% block content %}
+	<h2>Редактировать запись</h2>
+	<form action="{%  url 'edit_entry' entry.id %}" method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" name="" value="Изменить">
+	</form>
+		
+{% endblock content %}
