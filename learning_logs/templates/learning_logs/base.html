@@ -1,6 +1,13 @@
 <p><a href="{% url 'homepage' %}">Главная</a> --
 <a href="{% url 'topics' %}">Список тем для изучения</a> --
 <a href="{% url 'new_topic' %}">Создать новую тему для изучения</a></p>
+{% if user.is_authenticated %}
+	Привет, {{ user.username }}.
+	<a href="{% url 'logout' %}">Выйти</a>
+{% else %}
+	<a href="{% url 'login' %}">Войти</a>
+	<a href="{% url 'register' %}">Регистрация</a>
+{% endif %}
 
 
 {% block content %}
