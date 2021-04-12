@@ -4,3 +4,4 @@ from . import models
 
 
 admin.site.register(models.Topic)
+admin.site.register(models.Entry)

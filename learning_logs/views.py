@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def get_homepage(request):
-	return HttpResponse('Hello')
+	return render(request, 'learning_logs/index.html')
