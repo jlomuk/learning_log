@@ -1,0 +1,20 @@
+{% extends "learning_logs/base.html" %}
+	
+{% block content %}
+
+  <h3> Тема: {{topic}}</h3>
+  <h4>Что изучено:</h4>
+  <ul>
+  	{% for entry in entries  %}
+    <li>
+      <p>{{entry.text|linebreaks}}</p>
+      <p>{{entry.data_added|date:'Y-m-d -- H:i'}}</p>
+      <br>
+    </li>
+    {% empty %}
+    <li>Ничего не изучено по данной теме</li>
+  	
+  	{% endfor %}
+  </ul>
+ 
+{% endblock content %}

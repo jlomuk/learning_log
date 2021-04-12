@@ -1,0 +1,15 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+	<p>Темы изучения</p>
+	<ul>
+		{% for topic in topics  %}
+			<li><a href="{% url 'topic_detail' topic.pk %}">{{topic}}</a></li>
+    {% empty %}
+      <li> Нет тем для изучения</li>
+			
+		{% endfor %}
+    
+	</ul>
+
+{% endblock content %}
