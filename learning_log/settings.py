@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'learning_logs.apps.LearningLogsConfig', 
+
 
 ]
 
