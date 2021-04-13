@@ -19,7 +19,12 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    # Мои приложения
     'users.apps.UsersConfig',
+    'learning_logs.apps.LearningLogsConfig',
+
+    # Сторонние приложения
+    'bootstrap4', 
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -27,9 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'learning_logs.apps.LearningLogsConfig',
-
 
 ]
 
@@ -123,4 +125,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_REDIRECT_URL = 'topics'
+LOGIN_REDIRECT_URL = 'homepage'
+LOGIN_URL = '/users/login/'

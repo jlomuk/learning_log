@@ -1,9 +1,16 @@
 {% extends "learning_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+	<h2>Регистрация нового пользователя</h2>
+{% endblock page_header %}
 
 {% block content %}
-	<form method="post" action="{% url 'register' %}">
+<form method="post" action="{% url 'register' %}" class="form">
 	{% csrf_token %}
-	{{ form.as_p }}
-	<button name="submit">Регистрация</button>
-	</form>
+	{% bootstrap_form form %}
+	{% buttons %}
+		<button name="submit" class="btn btn-primary">Зарегистрироваться</button>
+	{% endbuttons %} 
+</form>
 {% endblock content %}

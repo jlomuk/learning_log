@@ -1,5 +1,10 @@
 {% extends "learning_logs/base.html" %}
 	
-{% block content %}
-  <p>Данный сайт сделан для того, чтоб я что-то поделал на djang'e</p>
-{% endblock content %}
+{% block page_header %}
+<div class='jumbotron'>
+	<h1 class="display-3">Следи за прогрессом обучения</h1>
+	<p class="lead">Learning Log приложения для трекинга процесса обучения. Добавляйте область изучения и делайте по ней заметки об успехах!</p>
+	<a class="btn btn-lg btn-primary" href="{% url 'register' %}"
+	role="button">Зарегистрироваться &raquo;</a>
+</div>
+{% endblock page_header %}

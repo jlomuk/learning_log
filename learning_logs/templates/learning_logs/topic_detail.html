@@ -1,22 +1,22 @@
 {% extends "learning_logs/base.html" %}
 	
-{% block content %}
+{% block page_header %}
+  <h3>{{ topic }}</h3>
+{% endblock page_header %}
 
-  <h3> Тема: {{topic}}</h3>
-   <a href="{% url 'new_entry' topic.id %}">Добавить новую запись</a>
-  <h4>Что изучено:</h4>
+{% block content %}
+<a class="btn btn-info mb-3" href="{% url 'new_entry' topic.id %}">Добавить новую запись</a>
   <ul>
   	{% for entry in entries  %}
-    <li>
-      <p>{{entry.text|linebreaks}}</p>
-      <p>{{entry.data_added|date:'Y-m-d -- H:i'}}</p>
-      <br>
-      <p><a href="{% url 'edit_entry' entry.id %}">Редактировать запись</a></p>
-      <br>
-    </li>
+      <div class="card mb-3">
+        <h4 class="card-header">{{ entry.date_added|date:'M d, Y H:i' }}
+          <small><a href="{% url 'edit_entry' entry.id %}">Редактировать запись</a></small>
+        </h4>
+        <div class="card-body">{{ entry.text|linebreaks }}</div>
+      </div>
     {% empty %}
-    <li>Ничего не изучено по данной теме</li>
-  	
+      <p>Ничего не изучено по данной теме</p>
   	{% endfor %}
   </ul>
+  <br>
 {% endblock content %}

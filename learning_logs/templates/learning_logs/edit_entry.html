@@ -1,11 +1,16 @@
 {% extends "learning_logs/base.html" %}
-	
+{% load bootstrap4 %}
+
+{% block page_header %}
+	<h2>Редактирование заметок</h2>
+{% endblock page_header %}
+
 {% block content %}
-	<h2>Редактировать запись</h2>
-	<form action="{%  url 'edit_entry' entry.id %}" method="post">
-		{% csrf_token %}
-		{{form.as_p}}
-		<input type="submit" name="" value="Изменить">
-	</form>
-		
+<form method="post" action="{% url 'edit_entry' entry.id %}" class="form">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	{% buttons %}
+		<button name="submit" class="btn btn-primary">Изменить</button>
+	{% endbuttons %} 
+</form>
 {% endblock content %}
